@@ -40,19 +40,28 @@ function initClinicStatus() {
   if (!statusBadge || !statusText) return;
 
   const now = new Date();
+  const day = now.getDay(); // 0 is Sunday, 6 is Saturday
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
   const totalMinutes = currentHour * 60 + currentMinute;
 
-  const openMinutes = 9 * 60; // 9:00 AM
-  const closeMinutes = 20 * 60; // 8:00 PM
+  let openMinutes = 10 * 60; // 10:00 AM for Sun-Fri
+  let closeMinutes = 19 * 60 + 30; // 7:30 PM for Sun-Fri
+  let closeText = 'Open Today until 7:30 PM';
+
+  if (day === 6) { // Saturday
+    openMinutes = 8 * 60; // 8:00 AM
+    closeMinutes = 19 * 60; // 7:00 PM
+    closeText = 'Open Today until 7:00 PM';
+  }
 
   if (totalMinutes >= openMinutes && totalMinutes < closeMinutes) {
     statusBadge.className = 'status-badge open';
-    statusText.textContent = 'Open Today until 8:00 PM';
+    statusText.textContent = closeText;
   } else {
     statusBadge.className = 'status-badge closed';
-    statusText.textContent = 'Opens Tomorrow at 9:00 AM';
+    const nextOpen = (day === 5) ? 'Opens Tomorrow (Sat) at 8:00 AM' : 'Opens Tomorrow at 10:00 AM';
+    statusText.textContent = nextOpen;
     const pulse = statusBadge.querySelector('.status-pulse');
     if (pulse) pulse.style.background = '#f59e0b';
   }

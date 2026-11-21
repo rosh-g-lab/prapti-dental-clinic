@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0369a1" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Clean White Circle -->
+  <circle cx="200" cy="200" r="190" fill="#ffffff" stroke="#e2e8f0" stroke-width="4" filter="url(#shadow)"/>
+  
+  <!-- Outer Decorative Ring -->
+  <circle cx="200" cy="200" r="176" fill="none" stroke="#0284c7" stroke-width="3" stroke-dasharray="6 4" opacity="0.4"/>
+  <circle cx="200" cy="200" r="166" fill="none" stroke="#0d9488" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Circular Text Path -->
+  <path id="textPathTop" d="M 65 200 A 135 135 0 0 1 335 200" fill="none"/>
+  <path id="textPathBottom" d="M 335 200 A 135 135 0 0 1 65 200" fill="none"/>
+
+  <text font-family="Outfit, system-ui, -apple-system, sans-serif" font-size="17" font-weight="800" fill="#0369a1" letter-spacing="2.8">
+    <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">
+      PRAPTI DENTAL CLINIC
+    </textPath>
+  </text>
+
+  <text font-family="Outfit, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0d9488" letter-spacing="3.5">
+    <textPath href="#textPathBottom" startOffset="50%" text-anchor="middle">
+      • BASUNDHARA CHOWK •
+    </textPath>
+  </text>
+
+  <!-- Central Shield / Badge -->
+  <circle cx="200" cy="200" r="105" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Modern Dental Emblem: Elegant Tooth & Care Leaf -->
+  <g transform="translate(200, 195) scale(0.95)">
+    <!-- Tooth Base / Wings -->
+    <path d="M-42,-35 C-52,-15 -52,18 -36,44 C-26,60 -18,74 -6,54 C0,44 0,44 6,54 C18,74 26,60 36,44 C52,18 52,-15 42,-35 C32,-55 12,-58 0,-40 C-12,-58 -32,-55 -42,-35 Z" 
+          fill="url(#gradBlue)" 
+          filter="url(#shadow)"/>
+    
+    <!-- Inner Radiant Sparkle / White Contour -->
+    <path d="M-28,-22 C-34,-8 -34,14 -22,32 C-15,44 -10,50 -2,38 C0,34 0,34 2,38 C10,50 15,44 22,32 C34,14 34,-8 28,-22 C21,-35 8,-38 0,-24 C-8,-38 -21,-35 -28,-22 Z" 
+          fill="#ffffff" 
+          opacity="0.95"/>
+
+    <!-- Gentle Cross / Clinic Star in Teal -->
+    <path d="M0,-14 L0,22 M-18,4 L18,4" 
+          stroke="url(#gradTeal)" 
+          stroke-width="7" 
+          stroke-linecap="round"/>
+
+    <!-- Sparkle Stars -->
+    <circle cx="-26" cy="-32" r="3.5" fill="#0d9488"/>
+    <circle cx="26" cy="-32" r="3.5" fill="#0284c7"/>
+    <path d="M28,-48 L30,-42 L36,-40 L30,-38 L28,-32 L26,-38 L20,-40 L26,-42 Z" fill="#f59e0b"/>
+  </g>
+</svg>

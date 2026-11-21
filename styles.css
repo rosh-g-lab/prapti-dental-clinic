@@ -2787,3 +2787,107 @@ img, svg, video, iframe {
   background: var(--color-primary);
   color: #ffffff;
 }
+
+/* ==========================================================================
+   Nurse Hero Profile Card (Directly Under Attached Operatory Image)
+   ========================================================================== */
+.nurse-hero-card {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  position: relative;
+  z-index: 10;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.nurse-hero-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.12);
+  border-color: #cbd5e1;
+}
+
+.nurse-hero-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.nurse-role-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.nurse-rn-pill {
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #e2e8f0;
+}
+
+.nurse-hero-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  margin-bottom: 0.2rem;
+}
+
+.nurse-hero-subtitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0d9488;
+  margin-bottom: 1rem;
+}
+
+.nurse-hero-resp-block {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+}
+
+.nurse-resp-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-navy-dark);
+  margin-bottom: 0.65rem;
+}
+
+.nurse-resp-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.nurse-resp-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.nurse-resp-items li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
