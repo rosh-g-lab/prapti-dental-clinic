@@ -60,7 +60,7 @@ body {
   color: var(--color-text-main);
   background-color: var(--color-surface-dim);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -158,7 +158,7 @@ button {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -2027,7 +2027,7 @@ html {
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   width: 100%;
 }
@@ -2217,10 +2217,20 @@ img, svg, video, iframe {
   }
 
   .hero-trust-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
     padding-top: 1.5rem;
+  }
+
+  .hero-trust-stat .stat-number {
+    font-size: 1.85rem;
+  }
+
+  .hero-trust-stat .stat-label {
+    font-size: 0.84rem;
+    line-height: 1.35;
   }
 
   /* Emergency Strip */
@@ -2584,15 +2594,44 @@ img, svg, video, iframe {
 
 .clinical-team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 960px;
+  margin: 2rem auto 0 auto;
+}
+
+.team-card-image {
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: #f1f5f9;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.team-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  transition: transform var(--transition-normal);
+}
+
+.team-card:hover .team-card-image img {
+  transform: scale(1.02);
 }
 
 @media (max-width: 992px) {
   .clinical-team-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-card-image {
+    height: 320px;
   }
 }
 
@@ -2890,4 +2929,185 @@ img, svg, video, iframe {
 .nurse-resp-items li svg {
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsive Optimizations (All Breakpoints)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .clinical-team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Sticky Navbar & Mobile Navigation */
+  .nav-links {
+    z-index: 1001;
+  }
+
+  /* Hero Section Polish */
+  .hero-badge-pill {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.4;
+    word-break: break-word;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  /* Doctor Cards Stack Polish */
+  .doctor-title-row {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .team-meta-row {
+    margin: 0.5rem 0 0.85rem 0;
+  }
+
+  .meta-badge {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.65rem;
+    line-height: 1.4;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .doctor-cta-row .btn,
+  .doctor-cta-row .btn-tiktok-outline {
+    white-space: normal;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  /* Clinical Specialists & Infection Control */
+  .clinical-team-header {
+    margin: 3.5rem auto 1.5rem auto;
+  }
+
+  .clinical-team-header h3 {
+    font-size: 1.55rem !important;
+    line-height: 1.3;
+  }
+
+  .clinical-team-header p {
+    font-size: 0.94rem !important;
+    line-height: 1.55;
+  }
+
+  .team-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .team-card-image {
+    height: 340px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.25rem;
+  }
+
+  .team-card-header {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .team-badges {
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .role-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.55rem;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.3;
+  }
+
+  .license-chip {
+    font-size: 0.72rem;
+  }
+
+  .team-member-name {
+    font-size: 1.28rem;
+  }
+
+  .team-member-qual {
+    font-size: 0.88rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .core-responsibilities-box {
+    padding: 1rem 0.95rem;
+  }
+
+  .resp-title {
+    font-size: 0.8rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .resp-list {
+    gap: 0.45rem;
+  }
+
+  .resp-list li {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .team-card-footer {
+    padding-top: 0.85rem;
+  }
+
+  .btn-sm-outline {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    padding: 1.25rem 0.95rem;
+  }
+
+  .team-card-image {
+    height: 300px;
+  }
+
+  .hero-trust-stat .stat-number {
+    font-size: 1.65rem;
+  }
+
+  .hero-trust-stat .stat-label {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .team-card-image {
+    height: 270px;
+  }
+
+  .hero-trust-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-badge-pill {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+  }
 }
